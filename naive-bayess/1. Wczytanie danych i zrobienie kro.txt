@@ -1,0 +1,47 @@
+1. Wczytanie danych i zrobienie kross walidacji (iris ma 150 obiektów, 4 atryubty, 1 decyzje do kross walidacji jest brany podział na 5 [1][2][3][4][5] kratek 120 trn, 30 tst.
+2. system treningowy:
+	1. 6.0, 2.7, 5.1, 1.6, iris-versicolor
+	2. 5.0, 3.4, 1.6, 0.4, iris-setosa
+	3. 5.0, 3.4, 1.5, 0.2, iris-setosa
+
+1. Policzenie P(C) = ilość obiektów w klasie w trn/ilość obiektów systemu treningowego
+iris-versicolor = 0.361904  |
+iris-setosa = 0.352380      | Priori_class
+iris-virqinica = 0.285714   | 
+
+Zrobienie drugiego słownika (dane_by_class) = {klasa:[obiekty]}
+
+Dla każdej kolumny
+np.mean policzenie średniej
+np.var  policzenie variancji
+
+zrobić słownik stats_class={iris_versicolor:((5.9157,0.2671),(2.7736,0.0703),(4.2763,0.2049),(1.3289,0.0352)),
+					    a1-średnia, wariancja
+itd. dla innych klas, setosa i virginica
+
+3. system testowy:
+log_piorti_a1=0
+   a1   a2  a3  a4
+1. 5.2,4.1,1.5,0.1 iris-setosa
+   ln(P(C)) = ln(0.361904) = -1.016374
+   P(a1) = 1/2*PI*0.2671 * e^-(5.2-5.9157)^2/2*0.2671 = 0.295837	
+log_priori_a1+=ln(0.295837)=-1.217945
+
+p(a2) = ln(5.60046e-0.6) = -13310607
+
+Suma ln(P(ai)) = -32.930231
+
+iris-versikolor = -52.930231 
+iris-setosa = -1.841271
+iris-virginica = -71.993749
+
+Wybieramy najwieksza wartość czyli predykowana_klasa.append(iris_setosa)
+na końcu mamy accuracy czyli liczba pasujących predykcji/liczba 
+
+wychodiz accuracy = <0.86, 1.0>
+30*12 = ilość wynikow
+
+Wyniki jak dla KNN
+Zasada tworzenia macierzy jest taka sama jak przy knn, macierz biedzie zawierała tylko jedna kolumnę i jeden wiersz większy.
+Znajdywanie wartości trafionych i nietrafionych odbywa się na tej samej zasadzie.
+

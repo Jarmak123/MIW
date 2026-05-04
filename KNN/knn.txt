@@ -1,0 +1,62 @@
+1.czytanie danych - funkcją open
+2.kross-walidacja
+690 - obiektów 
+14 - atrybutów + decyzja
+
+
+1. dane sa połączone jako kafelki każdy kafelek ma 115 obiektów (kafelek jest 6)
+każdy z nich raz będzie system testowym, wtedy pozostałe zostają systemem treningowym
+licznik = 0
+lista_kross_validacja = []
+while(licznik!=len(sys))
+	j = random.randint(0,690) jeśli jest brana do przedziału to 689
+	if j not in lista_cross_validacji:
+		lista_kross_validacja.append(j)
+		licznik++
+
+# na tym etapie jest 1 krok całego zadania
+3. Algorytm KNN (krok2)
+przewidziane_klasy=[] - 115 obiektów
+for i in range(len(test)):
+	dystanse=[]
+	for j in range(len(trn)):
+		dystans pomiędzy test[i] a trn[j] - liczymy
+--
+euciledean_dist(i,j) - sqrt((p1-q1)^2+(p2-q2)^2...+(pn+qn)^2)
+for k in range(0,14):
+--
+
+k=,1,3,5 najlepsze nieparzyste
+k=3
+przewidziane_klasy.append(wieksza)
+
+--
+policzenie accuracy - zgodność / wszystkie klasy(115)
+
+4. Macierz pomyłek
+			klasy rzeczywiste
+klasy przewidziane	0	1
+		    0   15      10
+		    1	5	20
+(jak więcej klsa to dodajemy inne klasy klasyfikajci)
+accuracy = 35/50
+
+5. na outpucie trzeba mieć accuracy dla każdego przypadku
+	6 macierzy pomyłek
+	uśrednione accuracy 
+	co uruchomienie są inne wyniki - zapamiętać
+na sprawdzeniu jeśli będą wątpliwości należy wykonać inną metrykę, do pliku
+
+jeśli klasa decyzyjna będzie miała:
+k=4
+1->2
+0->2
+przewidziana_klasa=nan
+
+
+
+
+
+
+
+		
