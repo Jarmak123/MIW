@@ -1,0 +1,15 @@
+dzien pogoda temperatura wilgotnosc wiatr gram_w_tenisa
+D1 sloneczna goraco wysoka slaby nie
+D2 sloneczna goraco wysoka mocny nie
+D3 pochmurna goraco wysoka slaby nie
+D4 deszczowa lagodnie wysoka slaby tak
+D5 deszczowa chlodno normalna slaby tak
+D6 deszczowa chlodno normalna mocny nie
+D7 pochmurna chlodno normalna mocny tak
+D8 sloneczna lagodnie wysoka slaby nie
+D9 sloneczna chlodno normalna slaby tak
+d10 deszczowa lagodnie normalna slaby tak
+d11 sloneczna lagodnie normalna mocny tak
+D12 pochmurna lagodnie wysoka mocny tak
+D13 pochmurna goraco normalna slaby tak
+D14 deszczowa lagodnie wysoka mocny nie

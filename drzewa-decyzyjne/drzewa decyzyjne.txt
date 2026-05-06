@@ -1,0 +1,74 @@
+Wzór na entropie E(S) = p(+) log2 p(+) 0 - p(-) log2 p(-)
+p(+) = liczba decyzji pozytywnych / wszystkie decyzje
+p(-) = liczba negatywnych decyzji / wszystkie decyzje
+
+E(S) = E(9+, 5-) = 9/14 LOG2 9/14 - 5/14 log2 5/14
+po redukcji wychozdzi = -(log2((9/14)^9/14 * (5/14)^(5/14)) ~= 0.940 to jest Sv
+
+Taką entropie wyliczmy dla każdego atrybutu
+
+E(Wilgotnosc, wysoka) = E(3+, 4-) = 3/7 log2 3/7 - 4/7 log2 4/7 ~= 0.985 to jest Sv
+E(Wilgotnosc, normalna) = E(6+,1-) ~= 0.592
+
+Liczymy zysk informacyjny dla atrybutu Wilgotnosc
+Gain(S,A) = E(S) - Suma Sv/S
+		   v należy do Value(A) 
+
+
+Gain(Wilgotnosc) = 0.940 - (7/14 - 0.985) - (7/14 * 0.592) = 0.940 - 0.4935 - 0.296 = 0.151
+
+
+Gain(Wiatr) = 0.048
+Gain(Pogoda) = 0.246
+Gain(Temperatura) =0.029
+
+Wszystko do listy i wybieramy największy zysk. Pogoda - więc on jest podstawą drzewa decyzyjnego. 
+
+1. Pogoda: Posiada 3 wartościowania więc 3 gałęzie
+-Słoneczna - daje 2+, 3- : Tworzymy gałąź Wilgotność:
+-Wyskona:0,3- Liść ustawiamy na NIE 
+-Normalna:2+, 0: Liść ustawiamy na TAK
+
+-Pochmurna - 4+, 0 - 4 decyzje na tak 0 na nie więc robimy liść TAK
+-Deszczowa - 3+, 2-: Tworzymy węzeł Wiatr:
+-Słaby - 2+, 0-: Liść ustawiamy na TAK
+-Mocny - 0, 2-: Liść ustawiamy na NIE
+
+Podsystem:
+Pogoda(Słoneczna) = 1,2,8,9,11 Atrybuty które mają wartość słoneczna
+E(S) = E(2+,3-) 2/5 log2 2/5 - 3/5 log2 3/5 = 0.971
+
+Gain(Słoneczna, Wiatr) ~= 0.049
+Gain(Słoneczna, Wilgotność) ~= 0.971 Wybieramy wilgotność bo najwieksze
+Gain(Słoneczna, Temperatura) ~= 0.571
+
+Pogoda(Deszczowa) -4,5,6,10,14
+E(S) = 0.971 Jak już mamy wykorzystaną Wilgotność to tego nie robimy bo zrobimy zaprzeczenie
+Sprawdzamy zyski tylko dla:
+Gain(Deszczowa, Wiatr) ~= 0.971 - Wybieramy Wiatr
+Gain(Deszczowa, Temperatura) ~= 0.019
+
+
+Jeśli każdy z węzłów jest zakończony liściem to koniec programu, jeśli nie mamy podjętej decyzji to rozbudowywujemy go o dalsze kroki
+
+Jeżeli w jakimś momencie rozwijania drzewa podejmujemy decyzje na podstawie węzła który jest wyżej w hierarchii 
+
+Trzeba przyjąć kilka założeń logicznych 
+
+Ma zwaracać coś na podobieństwo reguł decyzyjnych np.:
+
+Pogoda(Pochmurna) => TAK
+Pogoda(Słoneczna) ^ (Wilgotnosc(Wysoka)) => NIE
+Pogoda(Słoneczna) ^ (Wilgotnosć(Niska)) => TAK 
+
+Itd.
+
+Dobrą praktyką do pisania kodu jest najpierw kod do pisania luźno - obliczyć entropie dla klasy systemu decyzyjnego a potem dać do funkcji
+Należy zrobić tak żeby main używał funkcji 
+
+
+
+
+
+
+
